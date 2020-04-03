@@ -2,43 +2,45 @@ import React from 'react';
 
 import './profile.style.css';
 
+import Bio from './bio';
+import Skills from './skills';
+import Links from './links';
+
+
 class Profile extends React.Component{
 
+    me = {
+        name: 'Md. Abdur Rahman',
+        title: 'Software Engineer, Guitarist, Traveller',
+        skillA: 'Php',
+        skillB: 'Javascript',
+        skillC: 'Laravel',
+        skillD: 'React',
+        linkA: 'Facebook',
+        linkB: 'Twitter',
+        linkC: 'Linkedin',
+        linkD: 'Github'
+    };
+
     render(){
+        // console.log('Profile - ', this.props);
         return (
             <div className='Container'>
-                <div className='Bio'>
-                    <h3>Md. Abdur Rahman</h3>
-                    <p>Software Engineer, Guitarist, Traveler</p>
-                </div>
 
-                <div className='Skills'>
-                    <h3>Skills: </h3>
-                    <ul>
-                        <li>Php</li>
-                        <li>React</li>
-                        <li>Javascript</li>
-                        <li>Ajax</li>
-                    </ul>
-                </div>
+                <Bio name= {this.me.name} title= {this.me.title} />
+                <Skills skillA={this.me.skillA}
+                        skillB={this.me.skillB}
+                        skillC={this.me.skillC}
+                        skillD={this.me.skillD}
 
-                <div className='Links'>
-                    <h3>Social Links: </h3>
-                    <ul>
-                        <li>
-                            <a href='#'>Facebook</a>
-                        </li>
-                        <li>
-                            <a href='#'>Twitter</a>
-                        </li>
-                        <li>
-                            <a href='#'>Linkedin</a>
-                        </li>
-                        <li>
-                            <a href='#'>Github</a>
-                        </li>
-                    </ul>
-                </div>
+                />
+                <Links linkA={this.me.linkA}
+                       linkB={this.me.linkB}
+                       linkC={this.me.linkC}
+                       linkD={this.me.linkD}
+                />
+
+
             </div>
 
 
