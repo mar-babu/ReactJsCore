@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 
 // import './button.style.css';
 import './app.css';
-import './button.style.css';
+import './button.module.css';
+
 
 import Button from './button';
 import BoxA from './box_a';
@@ -35,3 +36,8 @@ class App extends  Component {
 }
 
 export default App
+
+
+
+// https://styled-components.com/ (jss for 'stayle in js'
+//     (hover, psuedo, mediaquery) easy// )
