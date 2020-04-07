@@ -32,6 +32,41 @@ TextInput.defaultProps = {
     placeholder: ''
 };
 
+const Form = props => (
+    <form onSubmit={props.handleSubmit}>
+        <TextInput
+            name='name'
+            label='Enter Name'
+            placeholder='Mar Babu'
+            value={props.values.name}
+            onChange={props.handleChange}
+        />
+        <TextInput
+            name='email'
+            type='email'
+            label='Enter Email'
+            placeholder='mar@babu.com'
+            value={props.values.email}
+            onChange={props.handleChange}
+        />
+        <TextInput
+            name='password'
+            type='password'
+            label='Enter Password'
+            placeholder='******'
+            value={props.values.password}
+            onChange={props.handleChange}
+        />
+        <button type='submit'>Submit</button>
+    </form>
+);
+
+Form.propTypes = {
+  values: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+};
+
 class SplitForm extends React.Component {
 
     state = {
@@ -61,35 +96,14 @@ class SplitForm extends React.Component {
     };
 
     render() {
-        const { name, email, password} = this.state;
+
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <TextInput
-                        name='name'
-                        label='Enter Name'
-                        placeholder='Mar Babu'
-                        value={name}
-                        onChange={this.handleChange}
-                    />
-                    <TextInput
-                        name='email'
-                        type='email'
-                        label='Enter Email'
-                        placeholder='mar@babu.com'
-                        value={email}
-                        onChange={this.handleChange}
-                    />
-                    <TextInput
-                        name='password'
-                        type='password'
-                        label='Enter Password'
-                        placeholder='******'
-                        value={password}
-                        onChange={this.handleChange}
-                    />
-                    <button type='submit'>Submit</button>
-                </form>
+                <Form
+                    values={this.state}
+                    handleChange={this.handleChange}
+                    handleSubmit={this.handleSubmit}
+                />
             </div>
         );
     }
