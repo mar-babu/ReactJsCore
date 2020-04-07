@@ -3,13 +3,14 @@ import TextInput from './text-input';
 import PropTypes from 'prop-types';
 
 
-const Form = ({values, handleChange, agreement, handleAgreement, handleSubmit}) => (
+const Form = ({values, handleChange, agreement, errors, handleAgreement, handleSubmit}) => (
     <form onSubmit={handleSubmit}>
         <TextInput
             name='name'
             label='Name'
             placeholder='Mar Babu'
             value={values.name}
+            error={errors.name}
             onChange={handleChange}
         />
         <TextInput
@@ -18,6 +19,7 @@ const Form = ({values, handleChange, agreement, handleAgreement, handleSubmit}) 
             label='email'
             placeholder='mar@babu.com'
             value={values.email}
+            error={errors.email}
             onChange={handleChange}
         />
         <TextInput
@@ -26,6 +28,7 @@ const Form = ({values, handleChange, agreement, handleAgreement, handleSubmit}) 
             label='Password'
             placeholder='******'
             value={values.password}
+            error={errors.password}
             onChange={handleChange}
         />
         <TextInput
@@ -34,6 +37,7 @@ const Form = ({values, handleChange, agreement, handleAgreement, handleSubmit}) 
             label='BirthDate'
             placeholder='******'
             value={values.birthDate}
+            error={errors.birthDate}
             onChange={handleChange}
         />
         <div className='form-group'>
@@ -67,6 +71,7 @@ const Form = ({values, handleChange, agreement, handleAgreement, handleSubmit}) 
                 />
                 Other
             </label>
+            {errors.gender && <div className='invalid-feedback'>{errors.gender}</div>}
         </div>
         <div className='form-group'>
             <label className='mr-4'>
@@ -77,6 +82,7 @@ const Form = ({values, handleChange, agreement, handleAgreement, handleSubmit}) 
                     checked={agreement}
                     onChange={handleAgreement}
                 />
+                I agree
             </label>
         </div>
 
@@ -87,6 +93,7 @@ const Form = ({values, handleChange, agreement, handleAgreement, handleSubmit}) 
 Form.propTypes = {
     values: PropTypes.object.isRequired,
     agreement: PropTypes.bool.isRequired,
+    errors: PropTypes.object.isRequired,
     handleChange: PropTypes.func.isRequired,
     handleAgreement: PropTypes.func.isRequired,
     handleSubmit: PropTypes.func.isRequired
