@@ -2,7 +2,6 @@ import React from 'react';
 import TextInput from './text-input';
 import PropTypes from 'prop-types';
 
-
 const Form = props => (
     <form onSubmit={props.handleSubmit}>
         <TextInput
