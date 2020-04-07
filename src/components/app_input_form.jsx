@@ -6,6 +6,7 @@ import Inputs from './inputs';
 import UnControlledForm from './forms/uncontrolled_form';
 import ControlledForm from './forms/controlled_form';
 import SplitForm from './split-form';
+import SignupForm from './signup-form';
 
 const App = () => {
     return (
@@ -15,7 +16,8 @@ const App = () => {
             {/*<Inputs/>*/}
             {/*<UnControlledForm/>*/}
             {/*<ControlledForm/>*/}
-            <SplitForm/>
+            {/*<SplitForm/>*/}
+            <SignupForm/>
         </div>
     );
 };
