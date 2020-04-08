@@ -1,4 +1,8 @@
 import React from 'react';
+
+import PropTypes from 'prop-types'
+
+
 import Form from "./form";
 
 const initValues = {
@@ -37,7 +41,8 @@ class SignupForm extends React.Component {
         const {isValid, errors} = this.validate();
 
         if (isValid) {
-            console.log(this.state.values);
+            // console.log(this.state.values);
+            this.props.createUser(this.state.values);
             event.target.reset();
             this.setState({values: initValues, agreement: false, errrors: {}});
         } else {
@@ -68,7 +73,7 @@ class SignupForm extends React.Component {
 
         return {
             errors,
-            isValid: Object.keys(errors).length == 0
+            isValid: Object.keys(errors).length === 0
         }
     };
 
@@ -87,5 +92,9 @@ class SignupForm extends React.Component {
         );
     };
 }
+
+SignupForm.propTypes = {
+    createUser: PropTypes.func.isRequired
+};
 
 export default SignupForm;
